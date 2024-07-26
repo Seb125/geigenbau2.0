@@ -7,11 +7,25 @@ const theme = createTheme({
       main: '#e3e3e3', // Custom primary color
     },
     secondary: {
-      main: '#dc004e', // Custom secondary color
+      main: '#666361', // Custom secondary color
     },
+    tertiary: {
+      main: ''
+    }
   },
   typography: {
-    fontFamily: 'Roboto, Arial, sans-serif', // Custom font
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','), // Custom font
   },
 });
 
