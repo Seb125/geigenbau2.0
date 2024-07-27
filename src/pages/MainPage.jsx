@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import test from "../assets/test.jpg";
 import { Typography } from "@mui/material";
 import OSMMap from "../components/OSMMap";
+import Paper from "@mui/material/Paper";
 
 function MainPage() {
   return (
@@ -16,7 +17,7 @@ function MainPage() {
         position: "relative",
       }}
     >
-      <img src={test} style={{ width: "95vw", margin: "10px" }} />
+      <img src={test} style={{ objectFit: 'cover', margin: "10px", height: "800px", width: "95vw" }} />
       <Box
         sx={{
           position: "absolute",
@@ -47,13 +48,24 @@ function MainPage() {
           marginTop: "50px",
         }}
       >
-        <Typography variant="h4" fontFamily="Segoe UI Symbol" color="secondary" sx={{marginBottom:"20px"}}>
-          Öffnungszeiten
-        </Typography>
-        <Typography variant="h5" fontFamily="Segoe UI Symbol" color="secondary">
-          Montags 13-18 Uhr. Dienstag-Freitags 11-18 Uhr Samstag nach
-          Vereinbarung
-        </Typography>
+       
+          <Typography
+            variant="h4"
+            fontFamily="Segoe UI Symbol"
+            color="secondary"
+            sx={{ marginBottom: "20px" }}
+          >
+            Öffnungszeiten
+          </Typography>
+          <Typography
+            variant="h5"
+            fontFamily="Segoe UI Symbol"
+            color="secondary"
+          >
+            Montags 13-18 Uhr. Dienstag-Freitags 11-18 Uhr Samstag nach
+            Vereinbarung
+          </Typography>
+        
       </Box>
       <Box
         sx={{
@@ -61,15 +73,21 @@ function MainPage() {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          width: "100%"
+          width: "100%",
         }}
       >
         <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
-          <Grid item xs={2} sm={4} md={6} sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}>
+          <Grid
+            item
+            xs={2}
+            sm={4}
+            md={6}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Box
               sx={{
                 display: "flex",
@@ -82,7 +100,7 @@ function MainPage() {
                 variant="h4"
                 fontFamily="Segoe UI Symbol"
                 color="secondary"
-                sx={{marginBottom:"20px"}}
+                sx={{ marginBottom: "20px" }}
               >
                 Kontakt
               </Typography>

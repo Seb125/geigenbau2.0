@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 
 function Footer() {
   return (
@@ -19,12 +19,12 @@ function Footer() {
         marginTop={5}
         marginBottom={3}
       >
-        <Typography variant="h6" fontFamily="Segoe UI Symbol" color="secondary">
+        <Link variant="h6" href="/impressum" fontFamily="Segoe UI Symbol" color="secondary">
           Impressum
-        </Typography>
-        <Typography variant="h6" fontFamily="Segoe UI Symbol" color="secondary">
+        </Link>
+        <Link variant="h6" href="/datenschutz" fontFamily="Segoe UI Symbol" color="secondary">
           Datenschutz
-        </Typography>
+        </Link>
       </Stack>
     </div>
   );
