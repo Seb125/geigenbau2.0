@@ -7,6 +7,9 @@ import theme from "./components/Theme";
 import Test from "./pages/TestPage";
 import Handel from "./pages/Handel";
 import Neubau from "./pages/Neubau";
+import Mietinstrumente from "./pages/Mietinstrumente";
+import Reparatur from "./pages/Reparatur";
+import Kontakt from "./pages/Kontakt";
 import "./index.css";
 
 
@@ -20,6 +23,9 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/handel" element={<Handel />}  />
             <Route path="/neubau" element={<Neubau />}  />
+            <Route path="/mietinstrumente" element={<Mietinstrumente/>} />
+            <Route path="/reparatur" element={<Reparatur />} />
+            <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/test" element={<Test />} />
           </Routes>
         </Layout>
