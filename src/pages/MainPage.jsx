@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import test from "../assets/test.jpg";
 import { Typography } from "@mui/material";
 import OSMMap from "../components/OSMMap";
-import Paper from "@mui/material/Paper";
+import CookieBanner from "../components/CookieBanner";
 
 function MainPage() {
   return (
@@ -138,6 +138,9 @@ function MainPage() {
             <OSMMap />
           </Grid>
         </Grid>
+      </Box>
+      <Box>
+          <CookieBanner />
       </Box>
     </Box>
   );
