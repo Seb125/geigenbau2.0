@@ -1,4 +1,5 @@
-import CssBaseline from "@mui/material/CssBaseline";
+import { useState } from "react";
+import Notification from "../components/Notification";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import test from "../assets/test.jpg";
@@ -7,6 +8,10 @@ import OSMMap from "../components/OSMMap";
 import CookieBanner from "../components/CookieBanner";
 
 function MainPage() {
+
+  const [open, setOpen] = useState(true);
+
+
   return (
     <Box
       sx={{
@@ -17,6 +22,7 @@ function MainPage() {
         position: "relative",
       }}
     >
+    <Notification open={open} />
       <img src={test} style={{ objectFit: 'cover', margin: "10px", height: "800px", width: "95vw" }} />
       <Box
         sx={{
