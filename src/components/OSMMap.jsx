@@ -34,7 +34,7 @@ const OSMMap = () => {
     };
   }, []);
 
-  return <div ref={mapRef} id='map' style={{ width: isMobile ? "460px" : "500px"}}/>;
+  return <div ref={mapRef} id='map' style={{ width: isMobile ? "460px" : "500px", height: isMobile ? "260px" : "300px"}}/>;
 };
 
 export default OSMMap;
