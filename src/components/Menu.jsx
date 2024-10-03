@@ -7,11 +7,10 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Link from "@mui/material/Link";
 
 function Menu() {
-  
   const isMobile = useMediaQuery("(max-width:600px)"); // Customize the breakpoint as needed
   const relUrl = window.location.pathname;
 
-  console.log(relUrl)
+  console.log(relUrl);
 
   return (
     <div>
@@ -21,15 +20,15 @@ function Menu() {
         alignItems="center"
         justifyContent="space-around"
       >
-      <Link href="/">
-        <img
-          src={logo}
-          style={{
-            width: "60%",
-            border: "1px solid #666361",
-            borderRadius: "5%",
-          }}
-        />
+        <Link href="/">
+          <img
+            src={logo}
+            style={{
+              width: "60%",
+              border: "1px solid #666361",
+              borderRadius: "5%",
+            }}
+          />
         </Link>
         {!isMobile && (
           <>
@@ -78,16 +77,20 @@ function Menu() {
             >
               Kontakt
             </Link>
+            <Divider
+              variant="fullWidth"
+              color="secondary"
+              sx={{
+                color: "aqua",
+                borderColor: "lightgray",
+                marginTop: "10px",
+              }}
+            />
           </>
         )}
 
         {isMobile && <Sidebar />}
       </Stack>
-      <Divider
-        variant="fullWidth"
-        color="secondary"
-        sx={{ color: "aqua", borderColor: "lightgray", marginTop: "10px" }}
-      />
     </div>
   );
 }

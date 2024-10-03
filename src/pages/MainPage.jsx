@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Notification from "../components/Notification";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import test from "../assets/test.jpg";
@@ -8,10 +6,6 @@ import OSMMap from "../components/OSMMap";
 import CookieBanner from "../components/CookieBanner";
 
 function MainPage() {
-
-  const [open, setOpen] = useState(true);
-
-
   return (
     <Box
       sx={{
@@ -22,8 +16,15 @@ function MainPage() {
         position: "relative",
       }}
     >
-    <Notification open={open} />
-      <img src={test} style={{ objectFit: 'cover', margin: "10px", height: "800px", width: "95vw" }} />
+      <img
+        src={test}
+        style={{
+          objectFit: "cover",
+          margin: "10px",
+          height: "800px",
+          width: "95vw",
+        }}
+      />
       <Box
         sx={{
           position: "absolute",
@@ -34,13 +35,32 @@ function MainPage() {
           alignItems: "center",
         }}
       >
-        <Typography variant="h2" fontFamily="Segoe UI Symbol" color="primary">
+        <Typography
+          variant="h2"
+          fontFamily="Segoe UI Symbol"
+          color="primary"
+          sx={{
+            fontSize: { xs: "30px", md: "60px" },
+            textAlign: "center",
+            marginBottom: {xs: "10px", md: "0px"},
+          }}
+        >
           Schwarz Duscheleit Geigenbau
         </Typography>
-        <Typography variant="h4" fontFamily="Segoe UI Symbol" color="primary">
+        <Typography
+          variant="h4"
+          fontFamily="Segoe UI Symbol"
+          color="primary"
+          sx={{ fontSize: { xs: "25px", md: "40px" }, textAlign: "center" }}
+        >
           Herzlich Willkommen
         </Typography>
-        <Typography variant="h6" fontFamily="Segoe UI Symbol" color="primary">
+        <Typography
+          variant="h6"
+          fontFamily="Segoe UI Symbol"
+          color="primary"
+          sx={{ fontSize: { xs: "15px", md: "20px" }, textAlign: "center" }}
+        >
           Wir freuen uns über Ihren Besuch oder eine Nachricht!
         </Typography>
       </Box>
@@ -54,24 +74,18 @@ function MainPage() {
           marginTop: "50px",
         }}
       >
-       
-          <Typography
-            variant="h4"
-            fontFamily="Segoe UI Symbol"
-            color="secondary"
-            sx={{ marginBottom: "20px" }}
-          >
-            Öffnungszeiten
-          </Typography>
-          <Typography
-            variant="h5"
-            fontFamily="Segoe UI Symbol"
-            color="secondary"
-          >
-            Montags 13-18 Uhr. Dienstag-Freitags 11-18 Uhr Samstag nach
-            Vereinbarung
-          </Typography>
-        
+        <Typography
+          variant="h4"
+          fontFamily="Segoe UI Symbol"
+          color="secondary"
+          sx={{ marginBottom: "20px" }}
+        >
+          Öffnungszeiten
+        </Typography>
+        <Typography variant="h5" fontFamily="Segoe UI Symbol" color="secondary">
+          Montags 13-18 Uhr. Dienstag-Freitags 11-18 Uhr Samstag nach
+          Vereinbarung
+        </Typography>
       </Box>
       <Box
         sx={{
@@ -146,7 +160,7 @@ function MainPage() {
         </Grid>
       </Box>
       <Box>
-          <CookieBanner />
+        <CookieBanner />
       </Box>
     </Box>
   );

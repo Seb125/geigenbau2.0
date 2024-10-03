@@ -94,7 +94,7 @@ export default function TemporaryDrawer() {
   return (
     <div>
       <Button onClick={toggleDrawer(true)}><MenuIcon color='secondary'/></Button>
-      <Drawer open={open} onClose={toggleDrawer(false)} anchor='right'>
+      <Drawer open={open} onClose={toggleDrawer(false)} anchor='left' sx={{position: "absolute"}} variant='temporary'>
         {DrawerList}
       </Drawer>
     </div>
