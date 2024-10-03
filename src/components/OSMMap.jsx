@@ -2,10 +2,11 @@ import { useRef, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import customMarkerIcon from '../assets/marker.png';
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const OSMMap = () => {
   const mapRef = useRef(null);
-
+  const isMobile = useMediaQuery("(max-width:600px)"); // Customize the breakpoint as needed
   useEffect(() => {
     console.log(mapRef.current)
     //if (!mapRef.current) return;
@@ -33,7 +34,7 @@ const OSMMap = () => {
     };
   }, []);
 
-  return <div ref={mapRef} id='map'/>;
+  return <div ref={mapRef} id='map' style={{ width: isMobile ? "460px" : "500px"}}/>;
 };
 
 export default OSMMap;

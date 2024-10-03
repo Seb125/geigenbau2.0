@@ -77,20 +77,20 @@ function Menu() {
             >
               Kontakt
             </Link>
-            <Divider
-              variant="fullWidth"
-              color="secondary"
-              sx={{
-                color: "aqua",
-                borderColor: "lightgray",
-                marginTop: "10px",
-              }}
-            />
           </>
         )}
 
         {isMobile && <Sidebar />}
+        
       </Stack>
+      <Divider
+              variant="fullWidth"
+              sx={{
+                color: "lightgray",
+                borderColor: "lightgray",
+                marginTop: "10px",
+              }}
+            />
     </div>
   );
 }

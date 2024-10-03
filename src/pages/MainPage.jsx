@@ -4,16 +4,19 @@ import test from "../assets/test.jpg";
 import { Typography } from "@mui/material";
 import OSMMap from "../components/OSMMap";
 import CookieBanner from "../components/CookieBanner";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function MainPage() {
+  const isMobile = useMediaQuery("(max-width:600px)"); // Customize the breakpoint as needed
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "end",
         alignItems: "center",
         position: "relative",
+        marginTop: isMobile ? "30px" : "0px",
       }}
     >
       <img
@@ -21,14 +24,14 @@ function MainPage() {
         style={{
           objectFit: "cover",
           margin: "10px",
-          height: "800px",
+          height: isMobile ? "300px" : "800px",
           width: "95vw",
         }}
       />
       <Box
         sx={{
           position: "absolute",
-          top: "90px",
+          top: isMobile ? "20px" : "90px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -42,27 +45,31 @@ function MainPage() {
           sx={{
             fontSize: { xs: "30px", md: "60px" },
             textAlign: "center",
-            marginBottom: {xs: "10px", md: "0px"},
+            marginBottom: { xs: "10px", md: "0px" },
           }}
         >
           Schwarz Duscheleit Geigenbau
         </Typography>
-        <Typography
-          variant="h4"
-          fontFamily="Segoe UI Symbol"
-          color="primary"
-          sx={{ fontSize: { xs: "25px", md: "40px" }, textAlign: "center" }}
-        >
-          Herzlich Willkommen
-        </Typography>
-        <Typography
-          variant="h6"
-          fontFamily="Segoe UI Symbol"
-          color="primary"
-          sx={{ fontSize: { xs: "15px", md: "20px" }, textAlign: "center" }}
-        >
-          Wir freuen uns über Ihren Besuch oder eine Nachricht!
-        </Typography>
+        {!isMobile && (
+          <Typography
+            variant="h4"
+            fontFamily="Segoe UI Symbol"
+            color="primary"
+            sx={{ fontSize: { xs: "25px", md: "40px" }, textAlign: "center" }}
+          >
+            Herzlich Willkommen
+          </Typography>
+        )}
+        {!isMobile && (
+          <Typography
+            variant="h6"
+            fontFamily="Segoe UI Symbol"
+            color="primary"
+            sx={{ fontSize: { xs: "10px", md: "20px" }, textAlign: "center" }}
+          >
+            Wir freuen uns über Ihren Besuch oder eine Nachricht!
+          </Typography>
+        )}
       </Box>
       <Box
         sx={{
@@ -70,7 +77,7 @@ function MainPage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          marginBottom: "100px",
+          marginBottom: { xs: "50px", md: "100px" },
           marginTop: "50px",
         }}
       >
@@ -78,25 +85,41 @@ function MainPage() {
           variant="h4"
           fontFamily="Segoe UI Symbol"
           color="secondary"
-          sx={{ marginBottom: "20px" }}
+          sx={{ marginBottom: "20px", textAlign: "center" }}
         >
           Öffnungszeiten
         </Typography>
-        <Typography variant="h5" fontFamily="Segoe UI Symbol" color="secondary">
-          Montags 13-18 Uhr. Dienstag-Freitags 11-18 Uhr Samstag nach
-          Vereinbarung
+        <Typography
+          variant="h5"
+          fontFamily="Segoe UI Symbol"
+          color="secondary"
+          textAlign="center"
+          display="flex"
+          flexDirection={isMobile ? "column" : "row"}
+        >
+          <span>Montags 13-18 Uhr.</span>{" "}
+          <span>Dienstag-Freitags 11-18 Uhr</span>{" "}
+          <span>Samstag nach Vereinbarung</span>
         </Typography>
       </Box>
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
         }}
       >
-        <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid
+          container
+          columns={{ xs: 4, sm: 8, md: 12 }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: isMobile ? "column" : "row",
+          }}
+        >
           <Grid
             item
             xs={2}
@@ -129,7 +152,7 @@ function MainPage() {
                 fontFamily="Segoe UI Symbol"
                 color="secondary"
               >
-                E-Mail: schwarz.duscheleit@arcor.de
+                schwarz.duscheleit@arcor.de
               </Typography>
               <Typography
                 variant="h6"
@@ -154,7 +177,20 @@ function MainPage() {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={2} sm={4} md={6}>
+          <Grid
+            item
+            xs={3}
+            sm={4}
+            md={6}
+            sx={{
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignContent: "center",
+              marginTop: isMobile ? "30px" : "0px"
+            }}
+          >
             <OSMMap />
           </Grid>
         </Grid>

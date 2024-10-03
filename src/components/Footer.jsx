@@ -8,8 +8,7 @@ function Footer() {
     <div>
       <Divider
         variant="fullWidth"
-        color="secondary"
-        sx={{ color: "aqua", borderColor: "lightgray", marginTop: "80px" }}
+        sx={{ color: "lightgray", borderColor: "lightgray", marginTop: "80px" }}
       />
       <Stack
         direction="row"
