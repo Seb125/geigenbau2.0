@@ -35,9 +35,10 @@
 
 .carousel-image {
     width: 95vw;
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 99;
 
 }
 
