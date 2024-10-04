@@ -39,10 +39,6 @@ function Handel() {
       </Box>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
           width: "100%",
         }}
       >

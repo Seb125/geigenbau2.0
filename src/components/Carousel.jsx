@@ -5,11 +5,7 @@ function ImageCarousel({ images }) {
   return (
     <Box
       sx={{
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        width: "100%"
       }}
     >
       <Carousel sx={{ width: "100%",  }} >
