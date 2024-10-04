@@ -1,0 +1,62 @@
+.image {
+  object-fit: cover;
+  margin: 10px;
+  height: 300px;
+  width: 95vw;
+}
+
+.label {
+    position: absolute;
+    top: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #e3e3e3;
+    padding: 20px 35px;
+}
+
+.MuiTypography-root.header-text {
+    font-size: 35px;
+    font-family: "Segoe UI Symbol";
+    text-align: center;
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    width: 95vw;
+
+}
+
+.carousel-image {
+    width: 95vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+@media (min-width: 600px) {
+    .image {
+        height: 800px;
+    }
+    .carousel-image {
+        width: 70vw;
+        
+    }
+    .label {
+        top: 40%
+    }
+    .MuiTypography-root.header-text {
+        font-size: 60px;
+    }
+    .text-box {
+        width: 70%;
+        margin-bottom: 100px;
+    }
+}

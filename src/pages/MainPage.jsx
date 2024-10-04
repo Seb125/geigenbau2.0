@@ -16,17 +16,11 @@ function MainPage() {
         justifyContent: "end",
         alignItems: "center",
         position: "relative",
-        marginTop: isMobile ? "30px" : "0px",
       }}
     >
       <img
         src={test}
-        style={{
-          objectFit: "cover",
-          margin: "10px",
-          height: isMobile ? "300px" : "800px",
-          width: "95vw",
-        }}
+        className="image"
       />
       <Box
         sx={{
@@ -39,12 +33,9 @@ function MainPage() {
         }}
       >
         <Typography
-          variant="h2"
-          fontFamily="Segoe UI Symbol"
+          className="header-text"
           color="primary"
           sx={{
-            fontSize: { xs: "30px", md: "60px" },
-            textAlign: "center",
             marginBottom: { xs: "10px", md: "0px" },
           }}
         >

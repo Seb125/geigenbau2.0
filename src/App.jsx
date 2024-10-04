@@ -11,7 +11,7 @@ import Mietinstrumente from "./pages/Mietinstrumente";
 import Reparatur from "./pages/Reparatur";
 import Kontakt from "./pages/Kontakt";
 import "./index.css";
-
+import './App.css';
 
 function App() {
   return (

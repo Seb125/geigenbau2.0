@@ -1,9 +1,7 @@
-import CssBaseline from "@mui/material/CssBaseline";
+
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import handel from "../assets/handel.jpg";
 import { Typography } from "@mui/material";
-import OSMMap from "../components/OSMMap";
 import ImageCarousel from "../components/Carousel";
 import test from "../assets/test.jpg";
 
@@ -22,35 +20,16 @@ function Handel() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",}}>
-        <img src={handel} style={{ objectFit: 'cover', margin: "10px", height: "500px", width: "95vw" }} />
+        <img src={handel} className="image" />
         <Box
-          sx={{
-            position: "absolute",
-            top: "45%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            border: "2px solid #e3e3e3",
-            padding: "10px 25px"
-          }}
+          className="label"
         >
-          <Typography variant="h2" fontFamily="Segoe UI Symbol" color="primary">
+          <Typography className="header-text" variant="h3" fontFamily="Segoe UI Symbol" color="primary">
             Handel
           </Typography>
         </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          marginBottom: "100px",
-          marginTop: "50px",
-          width: "70%"
-        }}
-      >
+      <Box className="text-box">
         
         <Typography variant="h5" fontFamily="Segoe UI Symbol" color="secondary" align="center">
         Wir bieten Streichinstrumente und Bögen vom Schülerinstrument
@@ -64,12 +43,12 @@ function Handel() {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          width: "70%",
+          width: "100%",
         }}
       >
         
            
-              <ImageCarousel images={[handel, test]} />
+              <ImageCarousel images={[handel, handel]} className="image"/>
               
         
       </Box>

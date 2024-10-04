@@ -1,27 +1,26 @@
-
-import Carousel from 'react-material-ui-carousel';
-import { Paper, Box } from '@mui/material';
-
-
+import Carousel from "react-material-ui-carousel";
+import { Paper, Box } from "@mui/material";
 
 function ImageCarousel({ images }) {
   return (
-    <Box sx={{  flexGrow: 1, width: "100%", margin: "10px" }}>
-      <Carousel>
+    <Box
+      sx={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Carousel sx={{ width: "100%",  }} >
         {images.map((image, i) => (
-          
-            <Box
-              component="img"
-              sx={{
-                width: '100%',
-                height: '500px',
-                objectFit: 'cover'
-              }}
-              src={image}
-              alt={`Slide ${i}`}
-              key={i}
-            />
-          
+          <Box
+            component="img"
+            className="carousel-image"
+            src={image}
+            alt={`Slide ${i}`}
+            key={i}
+          />
         ))}
       </Carousel>
     </Box>
