@@ -187,7 +187,7 @@ function MainPage() {
         </Grid>
       </Box>
       <Box>
-        <CookieBanner />
+        {/* <CookieBanner /> */}
       </Box>
     </Box>
   );
