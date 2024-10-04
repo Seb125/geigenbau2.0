@@ -6,9 +6,11 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState, useEffect } from "react";
 
+
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
   const [userConsent, setUserConsent] = useState(null);
+  
 
   useEffect(() => {
     // Check if user has already made a choice
@@ -51,7 +53,6 @@ export default function CookieBanner() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleDecline}>Nicht Verstanden</Button>
           <Button onClick={handleAccept} autoFocus>
             Verstanden
           </Button>

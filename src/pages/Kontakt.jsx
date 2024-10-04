@@ -6,7 +6,7 @@ import {
   Button,
   CardActions,
   Grid,
-  Typography
+  Typography,
 } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -14,6 +14,10 @@ import { useState } from "react";
 import test from "../assets/test.jpg";
 import OSMMap from "../components/OSMMap";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Checkbox from "@mui/material/Checkbox";
+import Alert from "@mui/material/Alert";
+import CheckIcon from "@mui/icons-material/Check";
+import Link from '@mui/material/Link';
 
 function Kontakt() {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -25,7 +29,15 @@ function Kontakt() {
     name: "",
     email: "",
     message: "",
+    datenschutz: false,
   });
+  const [checked, setChecked] = useState(false);
+  const [send, setSend] = useState(true);
+  const [showFeedback, setShowFeedback] = useState(false);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
 
   const sendMessage = async (name, email, message) => {
     emailjs.init(import.meta.env.VITE_EMAIL_USER_ID);
@@ -52,6 +64,7 @@ function Kontakt() {
         name: "",
         email: "",
         message: "",
+        datenschutz: "",
       };
       if (name.trim() === "") {
         newErrors.name = "Name darf nicht leer sein";
@@ -75,10 +88,23 @@ function Kontakt() {
           "Nachricht darf nicht mehr als 100 Zeichen beinhalten";
         valid = false;
       }
+      if (!checked) {
+        newErrors.datenschutz = true;
+        valid = false;
+      }
       setErrors(newErrors);
       // only when all validation conditions pass the data is updated and the "update view" will be left with a new rerender
       if (valid) {
-        sendMessage(name, email, message);
+        sendMessage(name, email, message)
+          .then((res) => {
+            setSend(true);
+            setShowFeedback(true);
+          })
+          .catch((error) => {
+            console.log(error);
+            setSend(false);
+            setShowFeedback(true);
+          });
       }
     } catch (error) {
       console.log(error);
@@ -92,13 +118,10 @@ function Kontakt() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        position: "relative"
+        position: "relative",
       }}
     >
-      <img
-        src={test}
-        className="contact-image"
-      />
+      <img src={test} className="contact-image" />
 
       <Box
         sx={{
@@ -142,16 +165,62 @@ function Kontakt() {
                 error={!!errors.message}
                 helperText={errors.message}
               />
-              <CardActions>
-                <Button type="submit" size="small" color="secondary">
-                  Senden
-                </Button>
+              <CardActions
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "start",
+                  alignItems: "start",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "start",
+                    alignItems: "center",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <Checkbox
+                    checked={checked}
+                    onChange={handleChange}
+                    inputProps={{ "aria-label": "primary checkbox" }}
+                  />
+                  <Typography
+                    fontFamily="Segoe UI Symbol"
+                    color={errors.datenschutz ? "error" : "secondary"}
+                  >
+                    <Link href="/datenschutz" color="inherit">AGBs</Link> zustimmen
+                  </Typography>
+                </Box>
+                <Box>
+                  {showFeedback ? (
+                    <Alert
+                      icon={<CheckIcon fontSize="inherit" />}
+                      severity="success"
+                    >
+                      {send
+                        ? "Email wurde erfolgreich versendet"
+                        : "Es gab ein Problem, bitte versuchen Sie es erneut"}
+                    </Alert>
+                  ) : (
+                    <Button
+                      type="submit"
+                      size="small"
+                      color="secondary"
+                      fontFamily="Segoe UI Symbol"
+                    >
+                      Senden
+                    </Button>
+                  )}
+                </Box>
               </CardActions>
             </form>
           </CardContent>
         </Card>
-        </Box>
-        <Box
+      </Box>
+      <Box
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -237,7 +306,7 @@ function Kontakt() {
               flexDirection: "row",
               justifyContent: "center",
               alignContent: "center",
-              marginTop: isMobile ? "30px" : "0px"
+              marginTop: isMobile ? "30px" : "0px",
             }}
           >
             <OSMMap />
