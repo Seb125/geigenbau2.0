@@ -86,9 +86,9 @@ function MainPage() {
           color="secondary"
           textAlign="center"
           display="flex"
-          flexDirection={isMobile ? "column" : "row"}
+          flexDirection="column"
         >
-          <span>Montags 13-18 Uhr.</span>{" "}
+          <span>Montags 13-18 Uhr</span>{" "}
           <span>Dienstag-Freitags 11-18 Uhr</span>{" "}
           <span>Samstag nach Vereinbarung</span>
         </Typography>
@@ -170,7 +170,7 @@ function MainPage() {
           </Grid>
           <Grid
             item
-            xs={3}
+            xs={4}
             sm={4}
             md={6}
             sx={{

@@ -228,7 +228,7 @@ function Kontakt() {
           </Grid>
           <Grid
             item
-            xs={3}
+            xs={4}
             sm={4}
             md={6}
             sx={{
