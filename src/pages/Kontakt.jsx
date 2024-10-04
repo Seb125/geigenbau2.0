@@ -133,7 +133,7 @@ function Kontakt() {
           top: "90px",
         }}
       >
-        <Card sx={{ width: "90%", maxWidth: 345, marginTop: "50px" }}>
+        <Card className="contact-card">
           <CardContent>
             <form onSubmit={handleSubmit}>
               <TextField
