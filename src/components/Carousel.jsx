@@ -10,19 +10,18 @@ function ImageCarousel({ images }) {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          left: "50%",
-          transform: "translateX(-50%)",
+          
         }}
       >
         {images.map((image, i) => (
           <Box
             component="img"
             sx={{
-              width: "100%",
               position: "relative",
-              marginBottom: "50px",
-              
+              left: "50%",
+              transform: "translate(-50%)"
             }}
+            className="carousel-image"
             src={image}
             alt={`Slide ${i}`}
             key={i}

@@ -45,7 +45,7 @@ function Handel() {
       >
         
            
-              <ImageCarousel images={[handel, handel]} className="image"/>
+              <ImageCarousel images={[handel, handel]}/>
               
         
       </Box>
