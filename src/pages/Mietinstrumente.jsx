@@ -28,41 +28,18 @@ function Mietinstrumente() {
       >
         <img
           src={handel}
-          style={{
-            objectFit: "cover",
-            margin: "10px",
-            height: "500px",
-            width: "95vw",
-          }}
+          className="subcategory-image" 
         />
         <Box
-          sx={{
-            position: "absolute",
-            top: "45%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            border: "2px solid #e3e3e3",
-            padding: "10px 25px",
-            zIndex: 2,
-          }}
+          className="subcategory-label"
         >
-          <Typography variant="h2" fontFamily="Segoe UI Symbol" color="primary">
+          <Typography className="header-text" variant="h3" fontFamily="Segoe UI Symbol" color="primary">
             Mietinstrumente
           </Typography>
         </Box>
       </Box>
       <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          marginBottom: "100px",
-          marginTop: "50px",
-          width: "70%",
-        }}
+        className="text-box"
       >
         <Typography
           variant="h5"
@@ -83,11 +60,7 @@ function Mietinstrumente() {
       </Box>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "70%",
+          width: "100%",
         }}
       >
         <ImageCarousel images={[handel, test]} />

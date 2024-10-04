@@ -13,9 +13,10 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import test from "../assets/test.jpg";
 import OSMMap from "../components/OSMMap";
-
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Kontakt() {
+  const isMobile = useMediaQuery("(max-width:600px)");
   // form fields
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -96,12 +97,7 @@ function Kontakt() {
     >
       <img
         src={test}
-        style={{
-          objectFit: "cover",
-          margin: "10px",
-          height: "800px",
-          width: "95vw",
-        }}
+        className="contact-image"
       />
 
       <Box
@@ -114,7 +110,7 @@ function Kontakt() {
           top: "90px",
         }}
       >
-        <Card sx={{ width: "100%", maxWidth: 345, marginTop: "50px" }}>
+        <Card sx={{ width: "90%", maxWidth: 345, marginTop: "40px" }}>
           <CardContent>
             <form onSubmit={handleSubmit}>
               <TextField
@@ -155,17 +151,24 @@ function Kontakt() {
           </CardContent>
         </Card>
         </Box>
-      <Box
+        <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
-          marginTop: "100px"
         }}
       >
-        <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid
+          container
+          columns={{ xs: 4, sm: 8, md: 12 }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: isMobile ? "column" : "row",
+          }}
+        >
           <Grid
             item
             xs={2}
@@ -198,7 +201,7 @@ function Kontakt() {
                 fontFamily="Segoe UI Symbol"
                 color="secondary"
               >
-                E-Mail: schwarz.duscheleit@arcor.de
+                schwarz.duscheleit@arcor.de
               </Typography>
               <Typography
                 variant="h6"
@@ -223,11 +226,24 @@ function Kontakt() {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={2} sm={4} md={6}>
+          <Grid
+            item
+            xs={3}
+            sm={4}
+            md={6}
+            sx={{
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignContent: "center",
+              marginTop: isMobile ? "30px" : "0px"
+            }}
+          >
             <OSMMap />
           </Grid>
         </Grid>
-    </Box>
+      </Box>
     </Box>
   );
 }
