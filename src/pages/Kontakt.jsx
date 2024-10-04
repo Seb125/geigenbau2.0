@@ -92,7 +92,7 @@ function Kontakt() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        position: "relative",
+        position: "relative"
       }}
     >
       <img
@@ -110,7 +110,7 @@ function Kontakt() {
           top: "90px",
         }}
       >
-        <Card sx={{ width: "90%", maxWidth: 345, marginTop: "40px" }}>
+        <Card sx={{ width: "90%", maxWidth: 345, marginTop: "50px" }}>
           <CardContent>
             <form onSubmit={handleSubmit}>
               <TextField
