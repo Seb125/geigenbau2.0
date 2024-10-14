@@ -3,8 +3,8 @@ import Grid from "@mui/material/Grid";
 import test from "../assets/test.jpg";
 import { Typography } from "@mui/material";
 import OSMMap from "../components/OSMMap";
-import CookieBanner from "../components/CookieBanner";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Notification from "../components/Notification"
 
 function MainPage() {
   const isMobile = useMediaQuery("(max-width:600px)"); // Customize the breakpoint as needed
@@ -187,7 +187,7 @@ function MainPage() {
         </Grid>
       </Box>
       <Box>
-        <CookieBanner />
+        <Notification />
       </Box>
     </Box>
   );
