@@ -187,7 +187,7 @@ function MainPage() {
         </Grid>
       </Box>
       <Box>
-        <Notification />
+        <Notification open={true}/>
       </Box>
     </Box>
   );
