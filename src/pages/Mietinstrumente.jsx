@@ -19,11 +19,11 @@ function Mietinstrumente() {
       <Box
         sx={{
           position: "relative",
-          width: "90%",
+          width: "50%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <img
@@ -47,15 +47,22 @@ function Mietinstrumente() {
           color="secondary"
           align="center"
         >
-          Wir verleihen Geigen, Bratschen und Celli in allen Größen (1/16 - 4/4)
-          und Qualitäten. Die Instrumente werden in unserer Werkstatt optimal
-          hergerichtet und spielfertig gemacht. Geigen können ab 17.-€
-          (inkl.Versicherung) ausgeliehen werden, Celli ab 25.-€, inklusive
-          Bogen und Etui/Hülle (bei Celli ist die Versicherung nicht im
-          Mietpreis enthalten). Die Mindestmietdauer beträgt 3 Monate, danach
-          monatlich kündbar. Bei einem späteren Instrumentenkauf werden bis zu 6
-          Monatsmieten angerechnet. Saiten und weiteres Zubehör sind ebenfalls
-          erhältlich.
+          <p>Wir verleihen Geigen, Bratschen und Celli in allen Größen (1/16 - 4/4)
+          und Qualitäten.</p>
+          
+          <p>Die Instrumente werden in unserer Werkstatt optimal
+          hergerichtet und spielfertig gemacht.</p>
+          
+          <p>Geige bis Größe 3/4 17.-€ incl. Versicherung
+</p>
+          <p>Geige 4/4 17.-€ ohne Versicherung
+
+</p>
+          <p>Cello ab 25.-€ ohne Versicherung
+
+</p>
+           <p>bei einem späteren Instrumentenkauf werden bis zu 6 Monatsmieten angerechnet.
+</p>
         </Typography>
       </Box>
       <Box

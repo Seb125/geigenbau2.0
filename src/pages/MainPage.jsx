@@ -37,6 +37,7 @@ function MainPage() {
           color="primary"
           sx={{
             marginBottom: { xs: "10px", md: "0px" },
+
           }}
         >
           Schwarz Duscheleit Geigenbau
@@ -69,9 +70,60 @@ function MainPage() {
           justifyContent: "center",
           alignItems: "center",
           marginBottom: { xs: "50px", md: "100px" },
-          marginTop: "50px",
+          marginTop: {xs: "20px", md: "50px"},
         }}
       >
+      {isMobile && (
+          <Typography
+            variant="h4"
+            fontFamily="Segoe UI Symbol"
+            color="secondary"
+            sx={{ fontSize: "25px", textAlign: "center" }}
+          >
+            Herzlich Willkommen
+          </Typography>
+        )}
+        {isMobile && (
+          <Typography
+            variant="h6"
+            fontFamily="Segoe UI Symbol"
+            color="secondary"
+            sx={{ fontSize: "15px", textAlign: "center", marginBottom: "30px" }}
+          >
+            Wir freuen uns über Ihren Besuch oder eine Nachricht!
+          </Typography>
+        )}
+      <Typography
+          variant="h5"
+          fontFamily="Segoe UI Symbol"
+          color="secondary"
+          sx={{ marginBottom: "20px", textAlign: "center", width: {xs: "90%", md: "60%"}, fontSize: {xs: "15px", md: "25px"} }}
+        >
+          Josef Schwarz, geb. in Mittenwald und 
+Dorothea Duscheleit, geb. in Berlin
+erlernten Ihr Handwerk an der Staatl. Fachschule für Geigenbau Mittenwald von 1980-1983.
+
+
+        </Typography>
+        <Typography
+          variant="h5"
+          fontFamily="Segoe UI Symbol"
+          color="secondary"
+          sx={{ marginBottom: "20px", textAlign: "center", width: {xs: "90%", md: "60%"}, fontSize: {xs: "15px", md: "25px"}  }}
+        >
+Im Anschluss sammelten sie in versch. Meisterwerkstätten im In-und Ausland wertvolle Erfahrungen, u.a. in Frankreich als auch den Niederlanden, Den Haag bei Willem Bouman.
+
+        </Typography>
+        <Typography
+          variant="h5"
+          fontFamily="Segoe UI Symbol"
+          color="secondary"
+          sx={{ marginBottom: "60px", textAlign: "center", width: {xs: "90%", md: "60%"}, fontSize: {xs: "15px", md: "25px"}  }}
+        >
+Nach ihrer Meisterprüfung gründeten sie 1991 ihre eigene Geigenbauwerkstatt 
+in Berlin-Charlottenburg.
+
+        </Typography>
         <Typography
           variant="h4"
           fontFamily="Segoe UI Symbol"
@@ -187,7 +239,7 @@ function MainPage() {
         </Grid>
       </Box>
       <Box>
-        <Notification open={true}/>
+        {/* <Notification open={true}/> */}
       </Box>
     </Box>
   );

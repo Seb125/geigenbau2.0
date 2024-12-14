@@ -43,7 +43,8 @@
 }
 
 .MuiTypography-root.header-text {
-  font-size: 35px;
+  font-size: 25px;
+  width: 80%;
   font-family: "Segoe UI Symbol";
   text-align: center;
 }
@@ -76,7 +77,8 @@
     height: 800px;
   }
   .subcategory-image {
-    height: 500px;
+    
+    width: 100%;
   }
   .carousel-image {
     height: 400px;
@@ -93,6 +95,7 @@
   }
   .MuiTypography-root.header-text {
     font-size: 60px;
+    width: 100%;
   }
   .text-box {
     width: 70%;

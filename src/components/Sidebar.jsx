@@ -40,19 +40,19 @@ export default function TemporaryDrawer() {
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary={"Home"} />
+            <ListItemText primary={"Wir"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton
             onClick={() => {
-              navigate("/handel");
+              navigate("/reparatur");
             }}
           >
             <ListItemIcon>
-              <MusicNoteIcon />
+            <MusicNoteIcon />
             </ListItemIcon>
-            <ListItemText primary={"Handel"} />
+            <ListItemText primary={"Reparatur und Restauration"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
@@ -70,18 +70,6 @@ export default function TemporaryDrawer() {
         <ListItem disablePadding>
           <ListItemButton
             onClick={() => {
-              navigate("/reparatur");
-            }}
-          >
-            <ListItemIcon>
-            <MusicNoteIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Reparatur"} />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton
-            onClick={() => {
               navigate("/neubau");
             }}
           >
@@ -89,6 +77,18 @@ export default function TemporaryDrawer() {
             <MusicNoteIcon />
             </ListItemIcon>
             <ListItemText primary={"Neubau"} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton
+            onClick={() => {
+              navigate("/handel");
+            }}
+          >
+            <ListItemIcon>
+              <MusicNoteIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Verkauf von Geigen, Bratschen und Celli"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>

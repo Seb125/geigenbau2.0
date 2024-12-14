@@ -16,15 +16,15 @@ function Menu() {
     <div>
       <Stack
         direction="row"
-        spacing={2}
+        spacing={12}
         alignItems="center"
-        justifyContent="space-around"
+        justifyContent="center"
       >
         <Link href="/">
           <img
             src={logo}
             style={{
-              width: "60%",
+              width: "120px",
               border: "1px solid #666361",
               borderRadius: "5%",
             }}
@@ -32,14 +32,14 @@ function Menu() {
         </Link>
         {!isMobile && (
           <>
-            <Link
+          <Link
               variant="h6"
-              underline={relUrl === "/handel" ? "always" : "hover"}
-              href="/handel"
+              underline={relUrl === "/reparatur" ? "always" : "hover"}
+              href="/reparatur"
               fontFamily="Segoe UI Symbol"
               color="secondary"
             >
-              Handel
+              Reparatur und Restauration
             </Link>
             <Link
               variant="h6"
@@ -52,21 +52,21 @@ function Menu() {
             </Link>
             <Link
               variant="h6"
-              underline={relUrl === "/reparatur" ? "always" : "hover"}
-              href="/reparatur"
-              fontFamily="Segoe UI Symbol"
-              color="secondary"
-            >
-              Reparatur
-            </Link>
-            <Link
-              variant="h6"
               underline={relUrl === "/neubau" ? "always" : "hover"}
               href="/neubau"
               fontFamily="Segoe UI Symbol"
               color="secondary"
             >
               Neubau
+            </Link>
+            <Link
+              variant="h6"
+              underline={relUrl === "/handel" ? "always" : "hover"}
+              href="/handel"
+              fontFamily="Segoe UI Symbol"
+              color="secondary"
+            >
+              Handel
             </Link>
             <Link
               variant="h6"
@@ -77,6 +77,7 @@ function Menu() {
             >
               Kontakt
             </Link>
+            
           </>
         )}
 
