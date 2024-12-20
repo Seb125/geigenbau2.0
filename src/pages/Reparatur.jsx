@@ -3,6 +3,8 @@ import reparatur1 from "../assets/reparatur1.jpg";
 import reparatur2 from "../assets/reparatur2.jpg";
 import { Typography } from "@mui/material";
 import ImageCarousel from "../components/Carousel";
+import handel from "../assets/handel.jpg";
+
 
 function Reparatur() {
   return (
