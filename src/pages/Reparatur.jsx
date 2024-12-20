@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
-import reparatur1 from "../assets/reparatur1.jpg";
-import reparatur2 from "../assets/reparatur2.jpg";
+import reparatur1 from "../assets/reparatur1.jpeg";
+import reparatur2 from "../assets/reparatur2.jpeg";
 import { Typography } from "@mui/material";
 import ImageCarousel from "../components/Carousel";
 import handel from "../assets/handel.jpg";
