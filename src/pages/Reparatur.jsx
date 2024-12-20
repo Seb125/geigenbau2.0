@@ -1,7 +1,6 @@
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import handel from "../assets/handel.jpg";
-import test from "../assets/test.jpg";
+import reparatur1 from "../assets/reparatur1.jpg";
+import reparatur2 from "../assets/reparatur2.jpg";
 import { Typography } from "@mui/material";
 import ImageCarousel from "../components/Carousel";
 
@@ -55,7 +54,7 @@ function Reparatur() {
           width: "100%"
         }}
       >
-        <ImageCarousel images={[handel, test]} />
+        <ImageCarousel images={[reparatur1, reparatur2]} />
       </Box>
     </Box>
   );
