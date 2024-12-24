@@ -19,6 +19,7 @@ function Menu() {
         spacing={12}
         alignItems="center"
         justifyContent="center"
+        height="150px"
       >
         <Link href="/">
           <img
