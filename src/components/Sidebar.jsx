@@ -110,7 +110,7 @@ export default function TemporaryDrawer() {
   return (
     <div>
       <Button onClick={toggleDrawer(true)}>
-        <MenuIcon color="secondary" />
+        <MenuIcon color="secondary" sx={{position: "absolute", left: "180%"}}/>
       </Button>
       <Drawer
         open={open}

@@ -4,10 +4,15 @@ import reparatur2 from "../assets/reparatur2.jpeg";
 import { Typography } from "@mui/material";
 import ImageCarousel from "../components/Carousel";
 import handel from "../assets/handel.jpg";
+import ImageGallery from "../components/ImageGallery";
 
+
+const imageData = [{src: reparatur1, title: "Reapratur1"}, {src: reparatur2, title: "Reapratur2"}]
 
 function Reparatur() {
   return (
+    
+    
     <Box
       sx={{
         display: "flex",
@@ -20,7 +25,7 @@ function Reparatur() {
       <Box
         sx={{
           position: "relative",
-          width: "90%",
+          width: "80%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -51,14 +56,13 @@ function Reparatur() {
           Bogenreparaturen angeboten.
         </Typography>
       </Box>
-      <Box
-        sx={{
-          width: "100%"
-        }}
-      >
-        <ImageCarousel images={[reparatur1, reparatur2]} />
-      </Box>
+      
+        
+      <ImageGallery images={imageData} />
     </Box>
+
+    
+    
   );
 }
 

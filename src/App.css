@@ -8,7 +8,7 @@
 .subcategory-image {
   object-fit: cover;
   margin: 10px;
-  height: 250px;
+  height: 280px;
   width: 95vw;
 }
 
@@ -43,8 +43,8 @@
 }
 
 .MuiTypography-root.header-text {
-  font-size: 25px;
-  width: 80%;
+  font-size: 40px;
+  width: 100%;
   font-family: "Segoe UI Symbol";
   text-align: center;
 }
@@ -70,6 +70,10 @@
   margin-top: 10px;
   width: 90%;
 
+}
+
+.logo-image {
+  margin-left: -150px;
 }
 
 @media (min-width: 600px) {
@@ -101,4 +105,14 @@
     width: 70%;
     margin-bottom: 100px;
   }
+  .logo-image {
+    margin-left: -150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .logo-image {
+    margin-left: 0px;
+  }
+
 }

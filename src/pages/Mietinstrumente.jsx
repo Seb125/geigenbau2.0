@@ -3,7 +3,11 @@ import Box from "@mui/material/Box";
 import handel from "../assets/handel.jpg";
 import test from "../assets/test.jpg";
 import { Typography } from "@mui/material";
-import ImageCarousel from "../components/Carousel";
+import ImageGallery from "../components/ImageGallery";
+
+
+const imageData = [{src: handel, title: "Reapratur1"}, {src: test, title: "Reapratur2"}]
+
 
 function Mietinstrumente() {
   return (
@@ -19,7 +23,7 @@ function Mietinstrumente() {
       <Box
         sx={{
           position: "relative",
-          width: "50%",
+          width: "80%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -65,13 +69,8 @@ function Mietinstrumente() {
 </p>
         </Typography>
       </Box>
-      <Box
-        sx={{
-          width: "100%",
-        }}
-      >
-        <ImageCarousel images={[handel, test]} />
-      </Box>
+      <ImageGallery images={imageData} />
+
     </Box>
   );
 }

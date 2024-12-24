@@ -7,7 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Link from "@mui/material/Link";
 
 function Menu() {
-  const isMobile = useMediaQuery("(max-width:600px)"); // Customize the breakpoint as needed
+  const isMobile = useMediaQuery("(max-width:1000px)"); // Customize the breakpoint as needed
   const relUrl = window.location.pathname;
 
   console.log(relUrl);
@@ -23,10 +23,12 @@ function Menu() {
         <Link href="/">
           <img
             src={logo}
+            className="logo-image"
             style={{
               width: "120px",
               border: "1px solid #666361",
               borderRadius: "5%",
+              marginLeft: {xs: "-100px"}
             }}
           />
         </Link>
