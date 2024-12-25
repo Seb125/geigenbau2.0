@@ -3,30 +3,41 @@ import { Paper, Box } from "@mui/material";
 
 function ImageCarousel({ images }) {
   return (
-    <Box sx={{width: {xs: "90%", xm: "70%", md: "70%"}}}>
+    <Box sx={{ width: { xs: "90%", xm: "70%", md: "70%" }, height: {xs: "500px", xm: "800px", md: "800px"} }}>
       <Carousel
+        animation="fade"
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
         }}
-        NextIcon='>'
-        PrevIcon='<'
+        NextIcon=">"
+        PrevIcon="<"
         navButtonsAlwaysVisible={true}
         navButtonsProps={{
-              sx: {
-                 backgroundColor: {xs:'rgb(0,0,0,0.0)', xm: "rgb(128, 128, 128)", md: "rgb(128, 128, 128)"},
-                 borderRadius: 5
-              }
-          }}
-          navButtonsWrapperProps={{
-              sx: {
-                 bottom: {xs: "70px", xm: "70px", md:'60px'},
-                 top: 'unset',
-                 
-              }
-          }}
+          sx: {
+            backgroundColor: {
+              xs: "rgb(0,0,0,0.0)",
+              xm: "rgb(128, 128, 128)",
+              md: "rgb(128, 128, 128)",
+            },
+            borderRadius: 5,
+            tabindex: "-1",
+            "&:hover": {
+              backgroundColor: "inherit", // Prevent change on hover
+            },
+            "&:active": {
+              backgroundColor: "inherit", // Prevent change on click
+            },
+          },
+        }}
+        navButtonsWrapperProps={{
+          sx: {
+            bottom: { xs: "70px", xm: "70px", md: "60px" },
+            top: "unset",
+          },
+        }}
         autoPlay={true}
         interval={3000}
         timeout={1000}
@@ -51,14 +62,12 @@ function ImageCarousel({ images }) {
         {images.map((image, i) => (
           <Box
             component="img"
-            
             sx={{
               position: "relative",
               left: "50%",
               transform: "translate(-50%)",
-              width: {xs: "400px", xm:"700px" , md:"800px"},
-              height:"auto"
-              
+              width: { xs: "400px", xm: "700px", md: "800px" },
+              height: "auto",
             }}
             className="carousel-image"
             src={image}
