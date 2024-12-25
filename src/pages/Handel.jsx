@@ -18,7 +18,7 @@ function Handel() {
       <Box
         sx={{
           position: "relative",
-          width: "90%",
+          width: "80%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
