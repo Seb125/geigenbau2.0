@@ -6,6 +6,7 @@ import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Link from "@mui/material/Link";
 import logo2 from "../assets/logo2.svg";
+import logo3 from "../assets/logo.webp";
 
 function Menu() {
   const isMobile = useMediaQuery("(max-width:1000px)"); // Customize the breakpoint as needed
@@ -25,7 +26,7 @@ function Menu() {
           >
             <Link href="/">
               <img
-                src={logo2}
+                src={logo3}
                 className="logo-image"
                 style={{
                   width: "120px",
