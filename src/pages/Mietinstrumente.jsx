@@ -90,7 +90,7 @@ function Mietinstrumente() {
               </p>
             </Typography>
           </Box>
-          <ImageGallery images={imageData} />
+          {/* <ImageGallery images={imageData} /> */}
         </>
       )}
     </Box>

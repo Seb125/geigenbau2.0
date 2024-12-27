@@ -77,7 +77,6 @@ function Handel() {
               width: "100%",
             }}
           >
-            <ImageCarousel images={[header]} />
           </Box>
         </>
       )}
