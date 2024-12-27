@@ -38,7 +38,6 @@ function Handel() {
         <Box height="100vh"/>
       ) : (
         <>
-        <Menu />
           <Box
             sx={{
               position: "relative",
@@ -79,7 +78,7 @@ function Handel() {
               width: "100%",
             }}
           >
-            <ImageCarousel images={[handel, handel]} />
+            <ImageCarousel images={[header]} />
           </Box>
         </>
       )}
