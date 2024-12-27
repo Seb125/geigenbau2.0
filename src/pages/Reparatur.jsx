@@ -5,9 +5,6 @@ import { Typography } from "@mui/material";
 import header from "../assets/header.webp";
 import ImageGallery from "../components/ImageGallery";
 import { useState, useEffect } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import Footer from "../components/Footer";
-
 
 const imageData = [
   { src: reparatur1, title: "Reapratur1" },
@@ -16,6 +13,22 @@ const imageData = [
 
 function Reparatur() {
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    try {
+      // Check when all images are loaded
+      const promise = new Promise((resolve) => {
+        const img = new Image();
+        img.src = header;
+        img.onload = resolve;
+        img.onerror = resolve; // Handle errors as well
+      });
+
+      promise.then(() => setLoading(false));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   useEffect(() => {
     try {
@@ -43,6 +56,10 @@ function Reparatur() {
         position: "relative",
       }}
     >
+      {loading ? (
+        <Box height="100vh" />
+      ) : (
+        <>
           <Box
             sx={{
               position: "relative",
@@ -79,6 +96,8 @@ function Reparatur() {
           </Box>
 
           <ImageGallery images={imageData} />
+        </>
+      )}
     </Box>
   );
 }

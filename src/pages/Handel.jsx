@@ -3,8 +3,7 @@ import header from "../assets/header.webp";
 import { Typography } from "@mui/material";
 import ImageCarousel from "../components/Carousel";
 import { useState, useEffect } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import Menu from "../components/Menu";
+
 
 function Handel() {
   const [loading, setLoading] = useState(true);

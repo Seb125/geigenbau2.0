@@ -3,7 +3,7 @@ import header from "../assets/header.webp";
 import main from "../assets/main.webp";
 import { Typography } from "@mui/material";
 import ImageGallery from "../components/ImageGallery";
-
+import { useState, useEffect } from "react";
 
 const imageData = [
   { src: header, title: "Reapratur1" },
@@ -11,7 +11,23 @@ const imageData = [
 ];
 
 function Mietinstrumente() {
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    try {
+      // Check when all images are loaded
+      const promise = new Promise((resolve) => {
+        const img = new Image();
+        img.src = header;
+        img.onload = resolve;
+        img.onerror = resolve; // Handle errors as well
+      });
+
+      promise.then(() => setLoading(false));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   return (
     <Box
       sx={{
@@ -22,6 +38,10 @@ function Mietinstrumente() {
         position: "relative",
       }}
     >
+      {loading ? (
+        <Box height="100vh" />
+      ) : (
+        <>
           <Box
             sx={{
               position: "relative",
@@ -71,6 +91,8 @@ function Mietinstrumente() {
             </Typography>
           </Box>
           <ImageGallery images={imageData} />
+        </>
+      )}
     </Box>
   );
 }

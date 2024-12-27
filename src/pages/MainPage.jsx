@@ -10,8 +10,23 @@ import info from "../assets/info.txt";
 
 function MainPage() {
   const [infoText, setInfoText] = useState("");
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    try {
+      // Check when all images are loaded
+      const promise = new Promise((resolve) => {
+        const img = new Image();
+        img.src = main;
+        img.onload = resolve;
+        img.onerror = resolve; // Handle errors as well
+      });
 
+      promise.then(() => setLoading(false));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   useEffect(() => {
     try {
       fetch(info)
@@ -32,9 +47,12 @@ function MainPage() {
         flexDirection: "column",
         justifyContent: "end",
         alignItems: "center",
-        
       }}
     >
+      {loading ? (
+        <Box height="100vh" />
+      ) : (
+        <>
           <img src={main} className="image" />
           <Box
             sx={{
@@ -278,6 +296,8 @@ function MainPage() {
           <Box>
             {infoText.length > 0 ? <Notification text={infoText} /> : ""}
           </Box>
+        </>
+      )}
     </Box>
   );
 }
