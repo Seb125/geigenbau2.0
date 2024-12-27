@@ -11,13 +11,14 @@ import {
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
-import test from "../assets/test.jpg";
+import main from "../assets/main.jpg";
 import OSMMap from "../components/OSMMap";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Checkbox from "@mui/material/Checkbox";
 import Alert from "@mui/material/Alert";
 import CheckIcon from "@mui/icons-material/Check";
 import Link from '@mui/material/Link';
+
 
 function Kontakt() {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -121,7 +122,7 @@ function Kontakt() {
         position: "relative",
       }}
     >
-      <img src={test} className="contact-image" />
+      <img src={main} className="contact-image" />
 
       <Box
         sx={{

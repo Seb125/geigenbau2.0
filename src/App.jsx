@@ -1,10 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Layout from "./components/Layout";
-import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./components/Theme";
-import Test from "./pages/TestPage";
 import Handel from "./pages/Handel";
 import Neubau from "./pages/Neubau";
 import Mietinstrumente from "./pages/Mietinstrumente";
@@ -26,7 +24,6 @@ function App() {
             <Route path="/mietinstrumente" element={<Mietinstrumente/>} />
             <Route path="/reparatur" element={<Reparatur />} />
             <Route path="/kontakt" element={<Kontakt />} />
-            <Route path="/test" element={<Test />} />
           </Routes>
         </Layout>
         

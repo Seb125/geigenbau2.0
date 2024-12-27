@@ -1,12 +1,36 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import test from "../assets/test.jpg";
+import main from "../assets/main.jpg";
 import { Typography } from "@mui/material";
 import OSMMap from "../components/OSMMap";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Notification from "../components/Notification"
+import { useState, useEffect } from "react";
+import Notification from "../components/Notification";
+import info from "../assets/info.txt";
 
 function MainPage() {
+
+  const [infoText, setInfoText] = useState("");
+
+  useEffect(() => {
+    try {
+      fetch(info)
+      .then((r) => r.text())
+      .then((text) => {
+        setInfoText(text)
+      })
+      .catch((e)=> {
+        console.log(e)
+      })
+      
+    } catch (error) {
+      console.log(error)
+    }
+
+
+  })
+
+
   const isMobile = useMediaQuery("(max-width:600px)"); // Customize the breakpoint as needed
   return (
     <Box
@@ -19,7 +43,7 @@ function MainPage() {
       }}
     >
       <img
-        src={test}
+        src={main}
         className="image"
       />
       <Box
@@ -140,6 +164,7 @@ in Berlin-Charlottenburg.
           display="flex"
           flexDirection="column"
         >
+          {infoText.length > 0 ? <Box color="red">{infoText}</Box>: ""}
           <span>Montags 13-18 Uhr</span>{" "}
           <span>Dienstag-Freitags 11-18 Uhr</span>{" "}
           <span>Samstag nach Vereinbarung</span>
@@ -239,7 +264,7 @@ in Berlin-Charlottenburg.
         </Grid>
       </Box>
       <Box>
-        {/* <Notification open={true}/> */}
+        {infoText.length > 0 ? (<Notification text={infoText}/>): ""}
       </Box>
     </Box>
   );

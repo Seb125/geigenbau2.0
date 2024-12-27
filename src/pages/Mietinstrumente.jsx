@@ -1,12 +1,12 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import handel from "../assets/handel.jpg";
-import test from "../assets/test.jpg";
+import main from "../assets/main.jpg";
 import { Typography } from "@mui/material";
 import ImageGallery from "../components/ImageGallery";
 
 
-const imageData = [{src: handel, title: "Reapratur1"}, {src: test, title: "Reapratur2"}]
+const imageData = [{src: handel, title: "Reapratur1"}, {src: main, title: "Reapratur2"}]
 
 
 function Mietinstrumente() {

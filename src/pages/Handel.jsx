@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import handel from "../assets/handel.jpg";
 import { Typography } from "@mui/material";
 import ImageCarousel from "../components/Carousel";
-import test from "../assets/test.jpg";
+import main from "../assets/main.jpg";
 
 function Handel() {
   return (

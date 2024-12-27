@@ -2,18 +2,35 @@
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
-import { Box } from '@mui/material';
+import { Button, Box } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import { useState } from 'react';
 
-const Notification = ({ open }) => {
+const Notification = ({ text }) => {
+
+  const [open, setOpen] = useState(true);
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
+
   return (
     <Snackbar
       open={open}
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       sx={{height: "100vh"}}
+      onClose={handleClose}
     >
-      <Alert severity="info" sx={{ display: 'block', textAlign: 'center', height: "200px", width: "900px"}}>
-        <span style={{fontSize: "30px"}}>Diese Website befindet sich im Aufbau und steht ab Januar 2025 zur Verfügung!</span>
-      </Alert>
+      <Alert
+          onClose={handleClose}
+          severity="info"
+          variant="filled"
+          sx={{ width: '100%', minHeight: "100px", display: "flex", justifyContent: "center", alignItems: "center" }}
+        >
+          {text}
+        </Alert>
     </Snackbar>
   );
 };
