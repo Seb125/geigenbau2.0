@@ -10,8 +10,6 @@ function Menu() {
   const isMobile = useMediaQuery("(max-width:1000px)"); // Customize the breakpoint as needed
   const relUrl = window.location.pathname;
 
-  console.log(relUrl);
-
   return (
     <div>
       <Stack
@@ -22,20 +20,23 @@ function Menu() {
         height="150px"
       >
         <Link href="/">
-          <img
-            src={logo}
-            className="logo-image"
-            style={{
-              width: "120px",
-              border: "1px solid #666361",
-              borderRadius: "5%",
-              marginLeft: {xs: "-100px"}
-            }}
-          />
+          {logo ? (
+            <img
+              src={logo}
+              className="logo-image"
+              style={{
+                width: "120px",
+                border: "1px solid #666361",
+                borderRadius: "5%",
+              }}
+            />
+          ) : (
+            ""
+          )}
         </Link>
         {!isMobile && (
           <>
-          <Link
+            <Link
               variant="h6"
               underline={relUrl === "/reparatur" ? "always" : "hover"}
               href="/reparatur"
@@ -80,21 +81,19 @@ function Menu() {
             >
               Kontakt
             </Link>
-            
           </>
         )}
 
         {isMobile && <Sidebar />}
-        
       </Stack>
       <Divider
-              variant="fullWidth"
-              sx={{
-                color: "lightgray",
-                borderColor: "lightgray",
-                marginTop: "10px",
-              }}
-            />
+        variant="fullWidth"
+        sx={{
+          color: "lightgray",
+          borderColor: "lightgray",
+          marginTop: "10px",
+        }}
+      />
     </div>
   );
 }
