@@ -5,10 +5,26 @@ import logo from "../assets/logo.png";
 import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Link from "@mui/material/Link";
+import { useState, useEffect } from "react";
 
 function Menu() {
   const isMobile = useMediaQuery("(max-width:1000px)"); // Customize the breakpoint as needed
   const relUrl = window.location.pathname;
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Check when all images are loaded
+    const promise = new Promise((resolve) => {
+        const img = new Image();
+        img.src = logo;
+        img.onload = resolve;
+        img.onerror = resolve; // Handle errors as well
+      });
+   
+
+    promise.then(() => setLoading(false));
+  }, []);
+
 
   return (
     <div>
@@ -20,7 +36,7 @@ function Menu() {
         height="150px"
       >
         <Link href="/">
-          {logo ? (
+          {!loading ? (
             <img
               src={logo}
               className="logo-image"
