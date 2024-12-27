@@ -2,13 +2,11 @@ import Box from "@mui/material/Box";
 import reparatur1 from "../assets/reparatur1.jpeg";
 import reparatur2 from "../assets/reparatur2.jpeg";
 import { Typography } from "@mui/material";
-import handel from "../assets/handel.jpg";
+import header from "../assets/header.webp";
 import ImageGallery from "../components/ImageGallery";
 import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Footer from "../components/Footer";
-import Menu from "../components/Menu";
-
 
 
 const imageData = [
@@ -24,7 +22,7 @@ function Reparatur() {
       // Check when all images are loaded
       const promise = new Promise((resolve) => {
         const img = new Image();
-        img.src = handel;
+        img.src = header;
         img.onload = resolve;
         img.onerror = resolve; // Handle errors as well
       });
@@ -45,11 +43,6 @@ function Reparatur() {
         position: "relative",
       }}
     >
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <>
-        <Menu />
           <Box
             sx={{
               position: "relative",
@@ -60,7 +53,7 @@ function Reparatur() {
               alignItems: "center",
             }}
           >
-            <img src={handel} className="subcategory-image" />
+            <img src={header} className="subcategory-image" />
             <Box className="subcategory-label">
               <Typography
                 className="header-text"
@@ -86,9 +79,6 @@ function Reparatur() {
           </Box>
 
           <ImageGallery images={imageData} />
-          <Footer />
-        </>
-      )}
     </Box>
   );
 }

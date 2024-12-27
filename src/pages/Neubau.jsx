@@ -1,11 +1,8 @@
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import ImageCarousel from "../components/Carousel";
-import handel from "../assets/handel.jpg";
-import { useState, useEffect } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import Footer from "../components/Footer";
-import Menu from "../components/Menu";
+import header from "../assets/header.webp";
+
 
 import neubau0 from "../assets/neubau0.webp";
 import neubau1 from "../assets/neubau1.webp";
@@ -26,23 +23,6 @@ import neubau15 from "../assets/neubau15.webp";
 import neubau16 from "../assets/neubau16.webp";
 
 function Neubau() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    try {
-      // Check when all images are loaded
-      const promise = new Promise((resolve) => {
-        const img = new Image();
-        img.src = handel;
-        img.onload = resolve;
-        img.onerror = resolve; // Handle errors as well
-      });
-
-      promise.then(() => setLoading(false));
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
   return (
     <Box
       sx={{
@@ -53,11 +33,6 @@ function Neubau() {
         position: "relative",
       }}
     >
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <>
-        <Menu />
           <Box
             sx={{
               position: "relative",
@@ -68,7 +43,7 @@ function Neubau() {
               alignItems: "center",
             }}
           >
-            <img src={handel} className="subcategory-image" />
+            <img src={header} className="subcategory-image" />
             <Box className="subcategory-label">
               <Typography
                 className="header-text"
@@ -123,9 +98,6 @@ function Neubau() {
               ]}
             />
           </Box>
-          <Footer />
-        </>
-      )}
     </Box>
   );
 }

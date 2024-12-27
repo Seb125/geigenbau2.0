@@ -1,19 +1,16 @@
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import main from "../assets/main.jpg";
+import main from "../assets/main.webp";
 import { Typography } from "@mui/material";
 import OSMMap from "../components/OSMMap";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState, useEffect } from "react";
 import Notification from "../components/Notification";
 import info from "../assets/info.txt";
-import CircularProgress from "@mui/material/CircularProgress";
-import Footer from "../components/Footer";
-import Menu from "../components/Menu";
 
 function MainPage() {
   const [infoText, setInfoText] = useState("");
-  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     try {
@@ -22,16 +19,6 @@ function MainPage() {
         .then((text) => {
           setInfoText(text);
         });
-
-      // Check when all images are loaded
-      const promise = new Promise((resolve) => {
-        const img = new Image();
-        img.src = main;
-        img.onload = resolve;
-        img.onerror = resolve; // Handle errors as well
-      });
-
-      promise.then(() => setLoading(false));
     } catch (error) {
       console.log(error);
     }
@@ -48,11 +35,6 @@ function MainPage() {
         
       }}
     >
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <>
-        <Menu />
           <img src={main} className="image" />
           <Box
             sx={{
@@ -296,11 +278,6 @@ function MainPage() {
           <Box>
             {infoText.length > 0 ? <Notification text={infoText} /> : ""}
           </Box>
-          <Footer />
-        </>
-      )}
-      
-
     </Box>
   );
 }

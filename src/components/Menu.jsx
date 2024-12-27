@@ -1,12 +1,10 @@
 import Stack from "@mui/material/Stack";
 import Sidebar from "./Sidebar";
-import Divider from "@mui/material/Divider";
-import logo from "../assets/logo.png";
-import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Link from "@mui/material/Link";
-import logo2 from "../assets/logo2.svg";
-import logo3 from "../assets/logo.webp";
+import logo from "../assets/logo.webp";
+import Divider from "@mui/material/Divider";
+
 
 function Menu() {
   const isMobile = useMediaQuery("(max-width:1000px)"); // Customize the breakpoint as needed
@@ -16,7 +14,6 @@ function Menu() {
 
   return (
     <div>
-      
           <Stack
             direction="row"
             spacing={12}
@@ -26,7 +23,7 @@ function Menu() {
           >
             <Link href="/">
               <img
-                src={logo3}
+                src={logo}
                 className="logo-image"
                 style={{
                   width: "120px",
@@ -87,16 +84,14 @@ function Menu() {
 
             {isMobile && <Sidebar />}
           </Stack>
-          {/* <Divider
+          <Divider
             variant="fullWidth"
             sx={{
               color: "lightgray",
               borderColor: "lightgray",
               marginTop: "10px",
             }}
-          /> */}
-      
-     
+          />
     </div>
   );
 }

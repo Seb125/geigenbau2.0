@@ -5,7 +5,7 @@ import Link from "@mui/material/Link";
 
 function Footer() {
   return (
-    <Box width="100%">
+    <Box width="100%" marginTop="20px" marginBottom="20px" height="100px">
       <Divider
         variant="fullWidth"
         sx={{ color: "lightgray", borderColor: "lightgray", marginTop: "80px" }}

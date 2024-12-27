@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import customMarkerIcon from '../assets/marker.png';
+import customMarkerIcon from '../assets/marker.webp';
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const OSMMap = () => {

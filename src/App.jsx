@@ -8,6 +8,8 @@ import Neubau from "./pages/Neubau";
 import Mietinstrumente from "./pages/Mietinstrumente";
 import Reparatur from "./pages/Reparatur";
 import Kontakt from "./pages/Kontakt";
+import Impressum from "./pages/Impressum";
+import Datenschutz from "./pages/Datenschutz";
 import "./index.css";
 import './App.css';
 
@@ -16,7 +18,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
       
-        
+          <Layout>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/handel" element={<Handel />}  />
@@ -24,8 +26,10 @@ function App() {
             <Route path="/mietinstrumente" element={<Mietinstrumente/>} />
             <Route path="/reparatur" element={<Reparatur />} />
             <Route path="/kontakt" element={<Kontakt />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
           </Routes>
-      
+          </Layout>
         
       </ThemeProvider>
     </>

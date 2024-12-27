@@ -1,36 +1,17 @@
 import Box from "@mui/material/Box";
-import handel from "../assets/handel.jpg";
-import main from "../assets/main.jpg";
+import header from "../assets/header.webp";
+import main from "../assets/main.webp";
 import { Typography } from "@mui/material";
 import ImageGallery from "../components/ImageGallery";
-import { useState, useEffect } from "react";
-import CircularProgress from "@mui/material/CircularProgress";
-import Footer from "../components/Footer";
-import Menu from "../components/Menu";
+
 
 const imageData = [
-  { src: handel, title: "Reapratur1" },
+  { src: header, title: "Reapratur1" },
   { src: main, title: "Reapratur2" },
 ];
 
 function Mietinstrumente() {
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    try {
-      // Check when all images are loaded
-      const promise = new Promise((resolve) => {
-        const img = new Image();
-        img.src = handel;
-        img.onload = resolve;
-        img.onerror = resolve; // Handle errors as well
-      });
-
-      promise.then(() => setLoading(false));
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
   return (
     <Box
       sx={{
@@ -41,11 +22,6 @@ function Mietinstrumente() {
         position: "relative",
       }}
     >
-      {loading ? (
-        <CircularProgress />
-      ) : (
-        <>
-        <Menu />
           <Box
             sx={{
               position: "relative",
@@ -56,7 +32,7 @@ function Mietinstrumente() {
               alignItems: "center",
             }}
           >
-            <img src={handel} className="subcategory-image" />
+            <img src={header} className="subcategory-image" />
             <Box className="subcategory-label">
               <Typography
                 className="header-text"
@@ -95,9 +71,6 @@ function Mietinstrumente() {
             </Typography>
           </Box>
           <ImageGallery images={imageData} />
-          <Footer />
-        </>
-      )}
     </Box>
   );
 }

@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -11,13 +10,8 @@ import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
-import { useContext } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import violinIcon from "../assets/violin_icon.svg";
-import logo from "../assets/logo.png";
-import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
