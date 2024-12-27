@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import handel from "../assets/handel.jpg";
+import header from "../assets/header.webp";
 import { Typography } from "@mui/material";
 import ImageCarousel from "../components/Carousel";
 import { useState, useEffect } from "react";
@@ -14,7 +14,7 @@ function Handel() {
       // Check when all images are loaded
       const promise = new Promise((resolve) => {
         const img = new Image();
-        img.src = handel;
+        img.src = header;
         img.onload = resolve;
         img.onerror = resolve; // Handle errors as well
       });
@@ -49,7 +49,7 @@ function Handel() {
               alignItems: "center",
             }}
           >
-            <img src={handel} className="subcategory-image" />
+            <img src={header} className="subcategory-image" />
             <Box className="subcategory-label">
               <Typography
                 className="header-text"
