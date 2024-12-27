@@ -35,7 +35,7 @@ function Handel() {
       }}
     >
       {loading ? (
-        <CircularProgress />
+        <Box height="100vh"/>
       ) : (
         <>
         <Menu />
