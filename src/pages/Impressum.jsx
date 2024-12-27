@@ -5,7 +5,7 @@ function Impressum() {
   return (
     <Box sx={{marginTop: "80px"}}>
       <Typography
-        variant="h3"
+        variant="h4"
         fontFamily="Segoe UI Symbol"
         color="secondary"
         align="center"
