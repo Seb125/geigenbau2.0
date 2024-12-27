@@ -57,7 +57,7 @@ function MainPage() {
           <Box
             sx={{
               position: "absolute",
-              top: isMobile ? "20px" : "180px",
+              top: isMobile ? "160px" : "180px",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
