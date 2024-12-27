@@ -16,7 +16,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
       
-        <Layout>
+        
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/handel" element={<Handel />}  />
@@ -25,7 +25,7 @@ function App() {
             <Route path="/reparatur" element={<Reparatur />} />
             <Route path="/kontakt" element={<Kontakt />} />
           </Routes>
-        </Layout>
+      
         
       </ThemeProvider>
     </>

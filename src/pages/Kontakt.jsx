@@ -17,10 +17,29 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Checkbox from "@mui/material/Checkbox";
 import Alert from "@mui/material/Alert";
 import CheckIcon from "@mui/icons-material/Check";
-import Link from '@mui/material/Link';
-
+import Link from "@mui/material/Link";
+import { useEffect } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Footer from "../components/Footer";
 
 function Kontakt() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    try {
+      // Check when all images are loaded
+      const promise = new Promise((resolve) => {
+        const img = new Image();
+        img.src = main;
+        img.onload = resolve;
+        img.onerror = resolve; // Handle errors as well
+      });
+
+      promise.then(() => setLoading(false));
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   const isMobile = useMediaQuery("(max-width:600px)");
   // form fields
   const [name, setName] = useState("");
@@ -113,208 +132,218 @@ function Kontakt() {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-      }}
-    >
-      <img src={main} className="contact-image" />
+    <>
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <img src={main} className="contact-image" />
 
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "absolute",
-          top: "90px",
-        }}
-      >
-        <Card className="contact-card">
-          <CardContent>
-            <form onSubmit={handleSubmit}>
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                error={!!errors.name}
-                helperText={errors.name}
-              />
-              <TextField
-                fullWidth
-                margin="normal"
-                label="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                error={!!errors.email}
-                helperText={errors.email}
-              />
-              <TextField
-                fullWidth
-                multiline
-                rows={4.3}
-                margin="normal"
-                label="Nachricht"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                error={!!errors.message}
-                helperText={errors.message}
-              />
-              <CardActions
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "absolute",
+              top: "90px",
+            }}
+          >
+            <Card className="contact-card">
+              <CardContent>
+                <form onSubmit={handleSubmit}>
+                  <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    error={!!errors.name}
+                    helperText={errors.name}
+                  />
+                  <TextField
+                    fullWidth
+                    margin="normal"
+                    label="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    error={!!errors.email}
+                    helperText={errors.email}
+                  />
+                  <TextField
+                    fullWidth
+                    multiline
+                    rows={4.3}
+                    margin="normal"
+                    label="Nachricht"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    error={!!errors.message}
+                    helperText={errors.message}
+                  />
+                  <CardActions
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "start",
+                      alignItems: "start",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "start",
+                        alignItems: "center",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        inputProps={{ "aria-label": "primary checkbox" }}
+                      />
+                      <Typography
+                        fontFamily="Segoe UI Symbol"
+                        color={errors.datenschutz ? "error" : "secondary"}
+                      >
+                        <Link href="/datenschutz" color="inherit">
+                          AGBs
+                        </Link>{" "}
+                        zustimmen
+                      </Typography>
+                    </Box>
+                    <Box>
+                      {showFeedback ? (
+                        <Alert
+                          icon={<CheckIcon fontSize="inherit" />}
+                          severity="success"
+                        >
+                          {send
+                            ? "Email wurde erfolgreich versendet"
+                            : "Es gab ein Problem, bitte versuchen Sie es erneut"}
+                        </Alert>
+                      ) : (
+                        <Button
+                          type="submit"
+                          size="small"
+                          color="secondary"
+                          fontFamily="Segoe UI Symbol"
+                        >
+                          Senden
+                        </Button>
+                      )}
+                    </Box>
+                  </CardActions>
+                </form>
+              </CardContent>
+            </Card>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            <Grid
+              container
+              columns={{ xs: 4, sm: 8, md: 12 }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: isMobile ? "column" : "row",
+              }}
+            >
+              <Grid
+                item
+                xs={2}
+                sm={4}
+                md={6}
                 sx={{
                   display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "start",
-                  alignItems: "start",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "start",
+                    flexDirection: "column",
+                    justifyContent: "center",
                     alignItems: "center",
-                    marginBottom: "10px",
                   }}
                 >
-                  <Checkbox
-                    checked={checked}
-                    onChange={handleChange}
-                    inputProps={{ "aria-label": "primary checkbox" }}
-                  />
                   <Typography
+                    variant="h4"
                     fontFamily="Segoe UI Symbol"
-                    color={errors.datenschutz ? "error" : "secondary"}
+                    color="secondary"
+                    sx={{ marginBottom: "20px" }}
                   >
-                    <Link href="/datenschutz" color="inherit">AGBs</Link> zustimmen
+                    Kontakt
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    fontFamily="Segoe UI Symbol"
+                    color="secondary"
+                  >
+                    schwarz.duscheleit@arcor.de
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    fontFamily="Segoe UI Symbol"
+                    color="secondary"
+                  >
+                    Tel: 030 3015564
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    fontFamily="Segoe UI Symbol"
+                    color="secondary"
+                  >
+                    Halmstrasse 2
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    fontFamily="Segoe UI Symbol"
+                    color="secondary"
+                  >
+                    14050 Berlin
                   </Typography>
                 </Box>
-                <Box>
-                  {showFeedback ? (
-                    <Alert
-                      icon={<CheckIcon fontSize="inherit" />}
-                      severity="success"
-                    >
-                      {send
-                        ? "Email wurde erfolgreich versendet"
-                        : "Es gab ein Problem, bitte versuchen Sie es erneut"}
-                    </Alert>
-                  ) : (
-                    <Button
-                      type="submit"
-                      size="small"
-                      color="secondary"
-                      fontFamily="Segoe UI Symbol"
-                    >
-                      Senden
-                    </Button>
-                  )}
-                </Box>
-              </CardActions>
-            </form>
-          </CardContent>
-        </Card>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-        }}
-      >
-        <Grid
-          container
-          columns={{ xs: 4, sm: 8, md: 12 }}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: isMobile ? "column" : "row",
-          }}
-        >
-          <Grid
-            item
-            xs={2}
-            sm={4}
-            md={6}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Typography
-                variant="h4"
-                fontFamily="Segoe UI Symbol"
-                color="secondary"
-                sx={{ marginBottom: "20px" }}
+              </Grid>
+              <Grid
+                item
+                xs={4}
+                sm={4}
+                md={6}
+                sx={{
+                  textAlign: "center",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  marginTop: isMobile ? "30px" : "0px",
+                }}
               >
-                Kontakt
-              </Typography>
-              <Typography
-                variant="h6"
-                fontFamily="Segoe UI Symbol"
-                color="secondary"
-              >
-                schwarz.duscheleit@arcor.de
-              </Typography>
-              <Typography
-                variant="h6"
-                fontFamily="Segoe UI Symbol"
-                color="secondary"
-              >
-                Tel: 030 3015564
-              </Typography>
-              <Typography
-                variant="h6"
-                fontFamily="Segoe UI Symbol"
-                color="secondary"
-              >
-                Halmstrasse 2
-              </Typography>
-              <Typography
-                variant="h6"
-                fontFamily="Segoe UI Symbol"
-                color="secondary"
-              >
-                14050 Berlin
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sm={4}
-            md={6}
-            sx={{
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              alignContent: "center",
-              marginTop: isMobile ? "30px" : "0px",
-            }}
-          >
-            <OSMMap />
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+                <OSMMap />
+              </Grid>
+            </Grid>
+          </Box>
+          <Footer />
+        </Box>
+      )}
+    </>
   );
 }
 

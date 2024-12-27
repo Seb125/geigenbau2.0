@@ -1,11 +1,11 @@
 import Stack from "@mui/material/Stack";
-import { Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import Link from "@mui/material/Link";
 
 function Footer() {
   return (
-    <div>
+    <Box width="100%">
       <Divider
         variant="fullWidth"
         sx={{ color: "lightgray", borderColor: "lightgray", marginTop: "80px" }}
@@ -25,7 +25,7 @@ function Footer() {
           Datenschutz
         </Link>
       </Stack>
-    </div>
+    </Box>
   );
 }
 
