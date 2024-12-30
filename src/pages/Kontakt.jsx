@@ -57,95 +57,6 @@ function Kontakt() {
     setChecked(event.target.checked);
   };
 
-  const sendMessage = async (name, email, message) => {
-    try {
-      console.log(email, name);
-      emailjs.init(import.meta.env.VITE_EMAIL_USER_ID);
-      const response = await emailjs.send(
-        import.meta.env.VITE_EMAIL_SERVICE_ID,
-        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
-        {
-          from_name: email,
-          message: message,
-        }
-      );
-      console.log(response);
-      console.log("Email sent successfully");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    try {
-      e.preventDefault();
-
-      grecaptcha.enterprise.ready(async () => {
-        try {
-          const token = await grecaptcha.enterprise.execute("6Le2s6kqAAAAAFgiZeawaxtJi5mKQGh3mmJDN2sh", {
-            action: "submit_form",
-          });
-          console.log("reCAPTACH Token", token);
-          // IMPORTANT: The 'token' that results from execute is an encrypted response sent by
-          // reCAPTCHA to the end user's browser.
-          // This token must be validated by creating an assessment.
-          // See https://cloud.google.com/recaptcha/docs/create-assessment
-        } catch (error) {
-          console.log(error)
-        }
-      });
-      // valdiate input fields
-      let valid = true;
-      const newErrors = {
-        name: "",
-        email: "",
-        message: "",
-        datenschutz: "",
-      };
-      if (name.trim() === "") {
-        newErrors.name = "Name darf nicht leer sein";
-        valid = false;
-      } else if (name.length > 28) {
-        newErrors.name = "Name darf nicht mehr als 28 Zeichen beinhalten";
-        valid = false;
-      }
-      if (email.trim() === "") {
-        newErrors.email = "Email darf nicht leer sein";
-        valid = false;
-      } else if (email.length > 40) {
-        newErrors.email = "Email darf nicht mehr als 820 Zeichen beinhalten";
-        valid = false;
-      }
-      if (message.trim() === "") {
-        newErrors.message = "Nachricht darf nicht leer sein";
-        valid = false;
-      } else if (message.length > 100) {
-        newErrors.message =
-          "Nachricht darf nicht mehr als 100 Zeichen beinhalten";
-        valid = false;
-      }
-      if (!checked) {
-        newErrors.datenschutz = true;
-        valid = false;
-      }
-      setErrors(newErrors);
-      // only when all validation conditions pass the data is updated and the "update view" will be left with a new rerender
-      if (valid) {
-        // sendMessage(name, email, message)
-        //   .then((res) => {
-        //     setSend(true);
-        //     setShowFeedback(true);
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //     setSend(false);
-        //     setShowFeedback(true);
-        //   });
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <Box
@@ -169,7 +80,7 @@ function Kontakt() {
               justifyContent: "start",
               alignItems: "start",
               width: "100%",
-              marginTop: "150px",
+              marginTop: {xs:"50px", sm: "150px"},
               height:"100vh"
             }}
           >
@@ -251,7 +162,7 @@ function Kontakt() {
                   flexDirection: "row",
                   justifyContent: "center",
                   alignContent: "center",
-                  marginTop: isMobile ? "30px" : "0px",
+                  marginTop: isMobile ? "60px" : "0px",
                 }}
               >
                 <OSMMap />
