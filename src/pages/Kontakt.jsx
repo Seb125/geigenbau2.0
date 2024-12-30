@@ -79,6 +79,21 @@ function Kontakt() {
   const handleSubmit = (e) => {
     try {
       e.preventDefault();
+
+      grecaptcha.enterprise.ready(async () => {
+        try {
+          const token = await grecaptcha.enterprise.execute("6Le2s6kqAAAAAFgiZeawaxtJi5mKQGh3mmJDN2sh", {
+            action: "submit_form",
+          });
+          console.log("reCAPTACH Token", token);
+          // IMPORTANT: The 'token' that results from execute is an encrypted response sent by
+          // reCAPTCHA to the end user's browser.
+          // This token must be validated by creating an assessment.
+          // See https://cloud.google.com/recaptcha/docs/create-assessment
+        } catch (error) {
+          console.log(error)
+        }
+      });
       // valdiate input fields
       let valid = true;
       const newErrors = {
@@ -116,16 +131,16 @@ function Kontakt() {
       setErrors(newErrors);
       // only when all validation conditions pass the data is updated and the "update view" will be left with a new rerender
       if (valid) {
-        sendMessage(name, email, message)
-          .then((res) => {
-            setSend(true);
-            setShowFeedback(true);
-          })
-          .catch((error) => {
-            console.log(error);
-            setSend(false);
-            setShowFeedback(true);
-          });
+        // sendMessage(name, email, message)
+        //   .then((res) => {
+        //     setSend(true);
+        //     setShowFeedback(true);
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //     setSend(false);
+        //     setShowFeedback(true);
+        //   });
       }
     } catch (error) {
       console.log(error);
@@ -146,114 +161,16 @@ function Kontakt() {
         <Box height="100vh" />
       ) : (
         <>
-          <img src={main} className="contact-image" />
-
+          
           <Box
             sx={{
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "absolute",
-              top: "90px",
-            }}
-          >
-            <Card className="contact-card">
-              <CardContent>
-                <form onSubmit={handleSubmit}>
-                  <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    error={!!errors.name}
-                    helperText={errors.name}
-                  />
-                  <TextField
-                    fullWidth
-                    margin="normal"
-                    label="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    error={!!errors.email}
-                    helperText={errors.email}
-                  />
-                  <TextField
-                    fullWidth
-                    multiline
-                    rows={4.3}
-                    margin="normal"
-                    label="Nachricht"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    error={!!errors.message}
-                    helperText={errors.message}
-                  />
-                  <CardActions
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "start",
-                      alignItems: "start",
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "start",
-                        alignItems: "center",
-                        marginBottom: "10px",
-                      }}
-                    >
-                      <Checkbox
-                        checked={checked}
-                        onChange={handleChange}
-                        inputProps={{ "aria-label": "primary checkbox" }}
-                      />
-                      <Typography
-                        fontFamily="Segoe UI Symbol"
-                        color={errors.datenschutz ? "error" : "secondary"}
-                      >
-                        <Link href="/datenschutz" color="inherit">
-                          AGBs
-                        </Link>{" "}
-                        zustimmen
-                      </Typography>
-                    </Box>
-                    <Box>
-                      {showFeedback ? (
-                        <Alert
-                          icon={<CheckIcon fontSize="inherit" />}
-                          severity="success"
-                        >
-                          {send
-                            ? "Email wurde erfolgreich versendet"
-                            : "Es gab ein Problem, bitte versuchen Sie es erneut"}
-                        </Alert>
-                      ) : (
-                        <Button
-                          type="submit"
-                          size="small"
-                          color="secondary"
-                          fontFamily="Segoe UI Symbol"
-                        >
-                          Senden
-                        </Button>
-                      )}
-                    </Box>
-                  </CardActions>
-                </form>
-              </CardContent>
-            </Card>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              flexDirection: {xs:"row", sm: "column"},
+              justifyContent: "start",
+              alignItems: "start",
               width: "100%",
+              marginTop: "150px",
+              height:"100vh"
             }}
           >
             <Grid
@@ -298,7 +215,7 @@ function Kontakt() {
                     fontFamily="Segoe UI Symbol"
                     color="secondary"
                   >
-                    schwarz.duscheleit@arcor.de
+                    <a href="mailto:schwarz.duscheleit@arcor.de">schwarz.duscheleit@arcor.de</a>
                   </Typography>
                   <Typography
                     variant="h6"
