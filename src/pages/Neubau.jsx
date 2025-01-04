@@ -21,6 +21,8 @@ import neubau13 from "../assets/neubau13.webp";
 import neubau14 from "../assets/neubau14.webp";
 import neubau15 from "../assets/neubau15.webp";
 import neubau16 from "../assets/neubau16.webp";
+import neubau17 from "../assets/neubau17.webp";
+
 
 function Neubau() {
   const [loading, setLoading] = useState(true);
@@ -99,6 +101,7 @@ function Neubau() {
           >
             <ImageCarousel
               images={[
+                neubau17,
                 neubau0,
                 neubau1,
                 neubau2,
