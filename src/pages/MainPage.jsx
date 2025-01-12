@@ -295,7 +295,7 @@ function MainPage() {
               </Grid>
             </Grid>
           </Box>
-          <Box>
+          <Box sx={{textAlign: "center"}}>
             {infoText.length > 0 ? <Notification text={infoText} /> : ""}
           </Box>
         </>
