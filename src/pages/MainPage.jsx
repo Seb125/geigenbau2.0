@@ -32,6 +32,8 @@ function MainPage() {
       fetch(info)
         .then((r) => r.text())
         .then((text) => {
+          console.log(text.length)
+          console.log(typeof text)
           setInfoText(text);
         });
     } catch (error) {
