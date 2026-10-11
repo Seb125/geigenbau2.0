@@ -199,6 +199,7 @@ function MainPage() {
               {infoText.length > 0 ? <Box color="red">{infoText}</Box> : ""}
               <span>Montags 13-18 Uhr</span>{" "}
               <span>Dienstag-Freitags 11-18 Uhr</span>{" "}
+              <span>Gerne mit Termin</span>{" "}
               <span>Samstag nach Vereinbarung</span>
             </Typography>
           </Box>
